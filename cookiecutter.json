@@ -3,5 +3,7 @@
     "company_name": "pmlbrito",
     "bundle_identifier": "com.{{ cookiecutter.company_name | replace(' ', '-') | lower }}.{{ cookiecutter.project_name | replace(' ', '-') | lower }}",
     "lead_dev": "Your Name",
-    "lead_email": "{{ cookiecutter.lead_dev | replace(' ', '.') | lower }}@gmail.com"
+    "lead_email": "{{ cookiecutter.lead_dev | replace(' ', '.') | lower }}@{{ cookiecutter.company_name | replace(' ', '-') | lower }}.com",
+    "fabric_api_key": "Ask a tech lead for the Fabric API Key or enter NO",
+    "fabric_build_secret_key": "Ask a tech lead for the Fabric BuildSecret or enter NO"
 }
