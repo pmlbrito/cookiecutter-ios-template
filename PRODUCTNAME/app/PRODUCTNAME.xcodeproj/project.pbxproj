@@ -47,8 +47,8 @@
 		423ED6F41EE0363B00C9982C /* BuildType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuildType.swift; sourceTree = "<group>"; };
 		423ED6F71EE038FF00C9982C /* LoggingConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoggingConfiguration.swift; sourceTree = "<group>"; };
 		423ED6FA1EE03E1F00C9982C /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
-		423ED6FC1EE045AD00C9982C /* ModuleInjectionProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ModuleInjectionProtocol.swift; path = ModuleInjectionProtocol.swift; sourceTree = "<group>"; };
-		423ED6FE1EE0470500C9982C /* SplashViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SplashViewController.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		423ED6FC1EE045AD00C9982C /* ModuleInjectionProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModuleInjectionProtocol.swift; sourceTree = "<group>"; };
+		423ED6FE1EE0470500C9982C /* SplashViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		423ED7021EE0479100C9982C /* SplashModuleInjector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashModuleInjector.swift; sourceTree = "<group>"; };
 		469DC03CB8B625A266569DED /* Pods-PRODUCTNAME.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PRODUCTNAME.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PRODUCTNAME/Pods-PRODUCTNAME.debug.xcconfig"; sourceTree = "<group>"; };
 		5744C986D43E752C3C5E59CD /* Pods_PRODUCTNAME.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PRODUCTNAME.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -203,7 +203,6 @@
 			children = (
 				423ED7011EE0477800C9982C /* Presentation */,
 			);
-			name = Modules;
 			path = Modules;
 			sourceTree = "<group>";
 		};
@@ -212,7 +211,6 @@
 			children = (
 				423ED7021EE0479100C9982C /* SplashModuleInjector.swift */,
 			);
-			name = Presentation;
 			path = Presentation;
 			sourceTree = "<group>";
 		};
@@ -585,7 +583,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/PRODUCTNAME/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.pmlb.PRODUCTNAME;
+				PRODUCT_BUNDLE_IDENTIFIER = com.company.PRODUCTNAME;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
@@ -602,7 +600,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/PRODUCTNAME/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.pmlb.PRODUCTNAME;
+				PRODUCT_BUNDLE_IDENTIFIER = com.company.PRODUCTNAME;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
@@ -617,7 +615,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = PRODUCTNAMETests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.pmlb.PRODUCTNAMETests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.company.PRODUCTNAMETests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PRODUCTNAME.app/PRODUCTNAME";
@@ -632,7 +630,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = PRODUCTNAMETests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.pmlb.PRODUCTNAMETests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.company.PRODUCTNAMETests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PRODUCTNAME.app/PRODUCTNAME";

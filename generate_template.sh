@@ -33,8 +33,8 @@ function replace {
     done
 }
 
-replace "PRODUCTNAME" "{{ cookiecutter.project_name | replace(' ', '') }}"
+
 replace "ORGANIZATION" "{{ cookiecutter.company_name }}"
 replace "LEADDEVELOPER" "{{ cookiecutter.lead_dev }}"
 replace "LEADEMAIL" "{{ cookiecutter.lead_email }}"
-replace "com.{{ cookiecutter.company_name }}.PRODUCTNAME" "{{ cookiecutter.bundle_identifier }}"
+replace "com.company.PRODUCTNAME" "{{ cookiecutter.bundle_identifier }}"
