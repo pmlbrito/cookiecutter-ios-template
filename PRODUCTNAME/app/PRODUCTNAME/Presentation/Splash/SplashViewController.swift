@@ -8,12 +8,21 @@
 
 import UIKit
 
-class SplashViewController: UIViewController {
+protocol SplashViewControllerProtocol: BaseViewControllerProtocol {
+    //TODO:
+    func displayError(error: Error)
+    
+    func splashLoadingFinished(viewModel: SplashViewModel)
+}
+
+class SplashViewController: BaseViewController, SplashViewControllerProtocol {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         self.view.backgroundColor = UIColor.red
+        
+        (self.presenter as? SplashPresenterProtocol)?.loadInitialConfigs()
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,6 +30,17 @@ class SplashViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+}
 
+extension SplashViewController {
+    func displayError(error: Error) {
+        self.showError(error: error)
+    }
+    
+    func splashLoadingFinished(viewModel: SplashViewModel) {
+        if(viewModel.success != nil && viewModel.success!) {
+            self.view.backgroundColor = UIColor.green
+        }
+    }
 }
 

@@ -13,9 +13,14 @@ class SplashModuleInjector: ModuleInjectionProtocol {
     static let container = Container()
     
     func setup() {
-        resolver.register(SplashViewController.self) { _ in
+        resolver.register(SplashViewController.self) { r in
             let controller = SplashViewController()
+            controller.presenter = r.resolve(SplashPresenterProtocol.self) as? BasePresenter
             return controller
+        }
+        
+        resolver.register(SplashPresenterProtocol.self) { r in
+            SplashPresenter()
         }
     }
 }
