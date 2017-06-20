@@ -17,14 +17,21 @@ class BaseViewController: UIViewController, BaseViewControllerProtocol {
     
     var presenter: BasePresenter?
     
-    func showError(error: Error) {
-        //TODO: show alertcontroller
+    func showError(error: BaseError) {
+        //show alertcontroller
+        let errorAlert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: UIAlertControllerStyle.alert)
+        
+        let defaultAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.cancel, handler: nil)
+        
+        errorAlert.addAction(defaultAction)
+        
+        self.present(errorAlert, animated: true, completion: nil)
     }
     
     func showLoadingIndicator() {
-        //TODO: show loading indicator
+        LoadingOverlay.shared.showOverlay(view: self.view)
     }
     func hideLoadingIndicator() {
-        //TODO: hide loading indicator
+        LoadingOverlay.shared.hideOverlayView()
     }
 }

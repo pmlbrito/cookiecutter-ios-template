@@ -27,14 +27,24 @@ class SplashPresenter: BasePresenter, SplashPresenterProtocol {
         }*/
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) { // in 2 seconds...
-            self.processInitialConfigsLoad(model:  ["success":true])
+            
+            //with error
+            self.processInitialConfigsLoad(model:  ["success":false, "error": BaseError(description: "Whooops something went wrong")])
+            
+            //without error
+//            self.processInitialConfigsLoad(model:  ["success":true])
         }
     }
     
     func processInitialConfigsLoad(model: Dictionary<String,Any>) {
         viewController?.hideLoadingIndicator()
         
-        //TODO: proceed with page loading
-        (viewController as? SplashViewControllerProtocol)?.splashLoadingFinished(viewModel: SplashViewModel(dictionary: model))
+        let processResponseModel = SplashViewModel(dictionary: model)
+        
+        if(processResponseModel.error != nil) {
+            (viewController as? SplashViewControllerProtocol)?.displayError(error: processResponseModel.error!)
+            return
+        }
+        (viewController as? SplashViewControllerProtocol)?.splashLoadingFinished(viewModel: processResponseModel)
     }
 }

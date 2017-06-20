@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 protocol BaseViewControllerProtocol {
-    func showError(error: Error)
+    func showError(error: BaseError)
     
     func showLoadingIndicator()
     func hideLoadingIndicator()

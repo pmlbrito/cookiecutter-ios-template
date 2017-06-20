@@ -26,6 +26,9 @@
 		423ED6FD1EE045AD00C9982C /* ModuleInjectionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423ED6FC1EE045AD00C9982C /* ModuleInjectionProtocol.swift */; };
 		423ED6FF1EE0470500C9982C /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423ED6FE1EE0470500C9982C /* SplashViewController.swift */; };
 		423ED7031EE0479100C9982C /* SplashModuleInjector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423ED7021EE0479100C9982C /* SplashModuleInjector.swift */; };
+		427F494B1EF92B3E00A6DD1F /* LoadingOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427F494A1EF92B3E00A6DD1F /* LoadingOverlay.swift */; };
+		427F494E1EF930F900A6DD1F /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427F494D1EF930F900A6DD1F /* UIViewExtensions.swift */; };
+		427F49501EF931D600A6DD1F /* BaseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427F494F1EF931D600A6DD1F /* BaseError.swift */; };
 		BA75127B41A29DF6D64D58AA /* Pods_PRODUCTNAMETests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 659FBB52C10F5DA7A6F6DE9A /* Pods_PRODUCTNAMETests.framework */; };
 /* End PBXBuildFile section */
 
@@ -62,6 +65,9 @@
 		423ED6FC1EE045AD00C9982C /* ModuleInjectionProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModuleInjectionProtocol.swift; sourceTree = "<group>"; };
 		423ED6FE1EE0470500C9982C /* SplashViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		423ED7021EE0479100C9982C /* SplashModuleInjector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashModuleInjector.swift; sourceTree = "<group>"; };
+		427F494A1EF92B3E00A6DD1F /* LoadingOverlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingOverlay.swift; sourceTree = "<group>"; };
+		427F494D1EF930F900A6DD1F /* UIViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
+		427F494F1EF931D600A6DD1F /* BaseError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseError.swift; sourceTree = "<group>"; };
 		469DC03CB8B625A266569DED /* Pods-PRODUCTNAME.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PRODUCTNAME.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PRODUCTNAME/Pods-PRODUCTNAME.debug.xcconfig"; sourceTree = "<group>"; };
 		5744C986D43E752C3C5E59CD /* Pods_PRODUCTNAME.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PRODUCTNAME.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		581473308CC904434C353350 /* Pods-PRODUCTNAMETests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PRODUCTNAMETests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PRODUCTNAMETests/Pods-PRODUCTNAMETests.release.xcconfig"; sourceTree = "<group>"; };
@@ -93,11 +99,11 @@
 		3F6408281EE3671E000E20E5 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				427F49491EF92B0E00A6DD1F /* Views */,
 				3F6408311EE36D1E000E20E5 /* BasePresenter.swift */,
 				3F64082D1EE3698C000E20E5 /* BaseViewController.swift */,
 				3F6408361EE37380000E20E5 /* BaseViewModel.swift */,
 			);
-			name = Common;
 			path = Common;
 			sourceTree = "<group>";
 		};
@@ -106,7 +112,6 @@
 			children = (
 				3F64082A1EE3673C000E20E5 /* Common */,
 			);
-			name = Models;
 			path = Models;
 			sourceTree = "<group>";
 		};
@@ -114,8 +119,8 @@
 			isa = PBXGroup;
 			children = (
 				3F64082B1EE36764000E20E5 /* BaseViewControllerModels.swift */,
+				427F494F1EF931D600A6DD1F /* BaseError.swift */,
 			);
-			name = Common;
 			path = Common;
 			sourceTree = "<group>";
 		};
@@ -173,6 +178,8 @@
 		423ED6EA1EE0220200C9982C /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				427F49551EF972E300A6DD1F /* OnBoarding */,
+				427F494C1EF9306400A6DD1F /* Extensions */,
 				3F6408281EE3671E000E20E5 /* Common */,
 				423ED6EB1EE0220C00C9982C /* Splash */,
 			);
@@ -257,6 +264,29 @@
 				423ED7021EE0479100C9982C /* SplashModuleInjector.swift */,
 			);
 			path = Presentation;
+			sourceTree = "<group>";
+		};
+		427F49491EF92B0E00A6DD1F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				427F494A1EF92B3E00A6DD1F /* LoadingOverlay.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		427F494C1EF9306400A6DD1F /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				427F494D1EF930F900A6DD1F /* UIViewExtensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		427F49551EF972E300A6DD1F /* OnBoarding */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = OnBoarding;
 			sourceTree = "<group>";
 		};
 		5CDB049E5F1EE9DCFF039432 /* Frameworks */ = {
@@ -483,9 +513,11 @@
 				423ED7031EE0479100C9982C /* SplashModuleInjector.swift in Sources */,
 				423ED6F81EE038FF00C9982C /* LoggingConfiguration.swift in Sources */,
 				3F64082E1EE3698C000E20E5 /* BaseViewController.swift in Sources */,
+				427F494B1EF92B3E00A6DD1F /* LoadingOverlay.swift in Sources */,
 				423ED6FB1EE03E2000C9982C /* Log.swift in Sources */,
 				423ED6F51EE0363B00C9982C /* BuildType.swift in Sources */,
 				423ED6FD1EE045AD00C9982C /* ModuleInjectionProtocol.swift in Sources */,
+				427F49501EF931D600A6DD1F /* BaseError.swift in Sources */,
 				3F6408351EE37305000E20E5 /* SplashModels.swift in Sources */,
 				423ED6F31EE025BA00C9982C /* CrashReportingConfiguration.swift in Sources */,
 				423ED6F01EE0251600C9982C /* AppLifecycleConfiguration.swift in Sources */,
@@ -493,6 +525,7 @@
 				3F64082C1EE36764000E20E5 /* BaseViewControllerModels.swift in Sources */,
 				3F6408371EE37380000E20E5 /* BaseViewModel.swift in Sources */,
 				423ED6CA1EDDC2FC00C9982C /* AppDelegate.swift in Sources */,
+				427F494E1EF930F900A6DD1F /* UIViewExtensions.swift in Sources */,
 				423ED6FF1EE0470500C9982C /* SplashViewController.swift in Sources */,
 				3F6408301EE36C76000E20E5 /* SplashPresenter.swift in Sources */,
 			);

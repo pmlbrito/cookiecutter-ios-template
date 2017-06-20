@@ -9,9 +9,7 @@
 import UIKit
 
 protocol SplashViewControllerProtocol: BaseViewControllerProtocol {
-    //TODO:
-    func displayError(error: Error)
-    
+    func displayError(error: BaseError)
     func splashLoadingFinished(viewModel: SplashViewModel)
 }
 
@@ -20,7 +18,7 @@ class SplashViewController: BaseViewController, SplashViewControllerProtocol {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        self.view.backgroundColor = UIColor.red
+        self.view.backgroundColor = UIColor.blue
         
         (self.presenter as? SplashPresenterProtocol)?.loadInitialConfigs()
     }
@@ -33,8 +31,9 @@ class SplashViewController: BaseViewController, SplashViewControllerProtocol {
 }
 
 extension SplashViewController {
-    func displayError(error: Error) {
+    func displayError(error: BaseError) {
         self.showError(error: error)
+        self.view.backgroundColor = UIColor.red
     }
     
     func splashLoadingFinished(viewModel: SplashViewModel) {
