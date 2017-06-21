@@ -28,12 +28,12 @@ function replace {
     do 
     NEWFILE=`echo $FILE | sed -e "s/${LOOKUP}/${EXPANDED}/g"`
         # Copy over incase the sed fails due to encoding
-        #echo "echo \"$FILE\""
+        # echo "echo \"$FILE\""
         echo "sed -e \"s/$1/$2/g\" \"$NEWFILE\" > t1 && mv t1 \"$NEWFILE\""
     done
 }
 
-
+replace "PRODUCTNAME" "{{ cookiecutter.project_name | replace(' ', '') }}"
 replace "ORGANIZATION" "{{ cookiecutter.company_name }}"
 replace "LEADDEVELOPER" "{{ cookiecutter.lead_dev }}"
 replace "LEADEMAIL" "{{ cookiecutter.lead_email }}"

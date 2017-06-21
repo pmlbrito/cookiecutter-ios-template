@@ -2,8 +2,8 @@
 //  LoadingOverlay.swift
 //  PRODUCTNAME
 //
-//  Created by Pedro Brito on 20/06/2017.
-//  Copyright © 2017 pmlb. All rights reserved.
+//  Created by LEADDEVELOPER on 20/06/2017.
+//  Copyright © 2017 ORGANIZATION. All rights reserved.
 //
 
 import UIKit
