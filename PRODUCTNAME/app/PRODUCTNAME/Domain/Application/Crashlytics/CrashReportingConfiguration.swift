@@ -11,13 +11,12 @@ import Crashlytics
 import UIKit
 
 struct CrashReportingConfiguration: AppLifecycleConfiguration {
-    
+
     var isEnabled: Bool {
         return BuildType.active != .debug
     }
-    
+
     func onDidLaunch(application: UIApplication, launchOptions: [UIApplicationLaunchOptionsKey: Any]?) {
         Fabric.with([Crashlytics.self])
     }
-    
 }

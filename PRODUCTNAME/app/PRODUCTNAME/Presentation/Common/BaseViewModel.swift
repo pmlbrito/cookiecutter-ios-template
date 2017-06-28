@@ -10,14 +10,14 @@ import Foundation
 
 class BaseViewModel {
     var success: Bool? = false
-    var error: BaseError? = nil
-    
+    var error: BaseError?
+
     init() {
         self.success = false
         self.error = nil
     }
-    
-    init(dictionary: Dictionary<String, Any>) {
+
+    init(dictionary: [String: Any]) {
         self.success = dictionary["success"] as? Bool ?? false
         self.error = dictionary["error"] as? BaseError
     }

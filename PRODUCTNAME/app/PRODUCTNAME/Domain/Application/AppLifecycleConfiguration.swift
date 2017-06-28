@@ -13,10 +13,10 @@ import UIKit
  *  on app launch.
  */
 protocol AppLifecycleConfiguration {
-    
+
     /// A check to see if the configuration is enabled.
     var isEnabled: Bool { get }
-    
+
     /**
      Invoked on UIApplication.applicationDidFinishLaunching to give the conforming instance a chance to execute configuration.
      
@@ -24,13 +24,10 @@ protocol AppLifecycleConfiguration {
      - parameter launchOptions: Optional launch options
      */
     func onDidLaunch(application: UIApplication, launchOptions: [UIApplicationLaunchOptionsKey: Any]?)
-    
 }
 
 extension AppLifecycleConfiguration {
-    
     var isEnabled: Bool {
         return true
     }
-    
 }

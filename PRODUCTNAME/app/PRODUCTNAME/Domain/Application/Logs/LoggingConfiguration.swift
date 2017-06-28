@@ -10,7 +10,6 @@ import UIKit
 import XCGLogger
 
 struct LoggingConfiguration: AppLifecycleConfiguration {
-    
     func onDidLaunch(application: UIApplication, launchOptions: [UIApplicationLaunchOptionsKey: Any]?) {
         Log.setup(logLevel: BuildType.active)
     }

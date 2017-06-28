@@ -11,9 +11,9 @@ import UIKit
 
 protocol BaseViewControllerProtocol {
     func showError(error: BaseError)
-    
     func showLoadingIndicator()
     func hideLoadingIndicator()
+    func transtitionToNextViewController(fromViewController: UIViewController, destinationViewController: UIViewController?, transitionType: ViewControllerPresentationType?)
 }
 
 protocol BasePresenterProtocol {

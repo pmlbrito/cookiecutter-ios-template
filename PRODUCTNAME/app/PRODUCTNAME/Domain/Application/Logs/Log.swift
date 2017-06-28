@@ -10,7 +10,6 @@ import Foundation
 import XCGLogger
 
 open class Log: XCGLogger {
-    
     fileprivate init() {
         super.init()
     }

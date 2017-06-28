@@ -9,7 +9,7 @@
 import Foundation
 
 class SplashViewModel: BaseViewModel {
-    override init(dictionary: Dictionary<String, Any>) {
+    override init(dictionary: [String: Any]) {
         super.init(dictionary: dictionary)
     }
 }

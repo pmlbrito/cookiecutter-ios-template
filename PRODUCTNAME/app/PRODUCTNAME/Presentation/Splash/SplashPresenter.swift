@@ -7,41 +7,38 @@
 //
 
 import UIKit
+import RxSwift
 
 protocol SplashPresenterProtocol: BasePresenterProtocol {
     func loadInitialConfigs()
 }
 
 class SplashPresenter: BasePresenter, SplashPresenterProtocol {
-    
+    var interactor: SplashInteractorProtocol?
+
+    var disposeBag = DisposeBag()
+
+    init(interactor: SplashInteractorProtocol?) {
+        self.interactor = interactor
+    }
+
     func loadInitialConfigs() {
         self.viewController?.showLoadingIndicator()
-        //TODO: call Process
-        
-        /*DispatchQueue.global(qos: .userInitiated).async {
-            let result = self.loadOrProcessSetup()
-            // Bounce back to the main thread to update the UI
-            DispatchQueue.main.async {
-                self.processInitialConfigsLoad(model: ["load_success":true])
-            }
-        }*/
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) { // in 2 seconds...
-            
-            //with error
-            self.processInitialConfigsLoad(model:  ["success":false, "error": BaseError(description: "Whooops something went wrong")])
-            
-            //without error
-//            self.processInitialConfigsLoad(model:  ["success":true])
+        //call Process
+        if let subscription = self.interactor?.validateUserWelcomeStatus().observeOn(MainScheduler.instance).subscribe(onSuccess: { (result) in
+            self.processInitialConfigsLoad(model: ["success": (!result.hasError() && result.result)])
+        }, onError: { (error) in
+            self.processInitialConfigsLoad(model: ["success": false, "error": BaseError(description: error.localizedDescription)])
+        }) {
+            self.disposeBag.insert(subscription)
         }
     }
-    
-    func processInitialConfigsLoad(model: Dictionary<String,Any>) {
+
+    func processInitialConfigsLoad(model: [String: Any]) {
         viewController?.hideLoadingIndicator()
-        
         let processResponseModel = SplashViewModel(dictionary: model)
-        
-        if(processResponseModel.error != nil) {
+
+        if processResponseModel.error != nil {
             (viewController as? SplashViewControllerProtocol)?.displayError(error: processResponseModel.error!)
             return
         }

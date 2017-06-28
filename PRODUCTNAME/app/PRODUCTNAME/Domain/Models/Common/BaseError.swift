@@ -9,7 +9,6 @@
 import Foundation
 
 class BaseError: NSError {
-    
     convenience init(description: String?) {
         self.init(domain: Bundle.main.bundleIdentifier!, code: -1, userInfo: [NSLocalizedDescriptionKey: description ?? "Generic Error"])
     }

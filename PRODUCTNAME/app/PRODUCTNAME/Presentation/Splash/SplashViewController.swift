@@ -19,7 +19,6 @@ class SplashViewController: BaseViewController, SplashViewControllerProtocol {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         self.view.backgroundColor = UIColor.blue
-        
         (self.presenter as? SplashPresenterProtocol)?.loadInitialConfigs()
     }
 
@@ -27,7 +26,6 @@ class SplashViewController: BaseViewController, SplashViewControllerProtocol {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
 }
 
 extension SplashViewController {
@@ -35,11 +33,9 @@ extension SplashViewController {
         self.showError(error: error)
         self.view.backgroundColor = UIColor.red
     }
-    
     func splashLoadingFinished(viewModel: SplashViewModel) {
-        if(viewModel.success != nil && viewModel.success!) {
+        if viewModel.success != nil && viewModel.success! {
             self.view.backgroundColor = UIColor.green
         }
     }
 }
-

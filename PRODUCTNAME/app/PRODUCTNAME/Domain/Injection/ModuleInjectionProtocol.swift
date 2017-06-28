@@ -11,7 +11,6 @@ import Swinject
 
 public protocol ModuleInjectionProtocol: class {
     func setup()
-    
+
     var resolver: Container { get }
 }
-

@@ -10,6 +10,8 @@ target 'PRODUCTNAME' do
   # pod 'KeychainAccess'
   # pod 'Marshal'
   pod 'SwiftLint'
+  pod 'RxSwift'
+  pod 'SwiftyUserDefaults'
 
   # pod 'BonMot'
   # pod 'Anchorage'
