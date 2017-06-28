@@ -1,0 +1,27 @@
+platform :ios, '8.0'
+use_frameworks!
+
+target 'PRODUCTNAME' do
+  pod 'Crashlytics'
+  pod 'XCGLogger'
+  pod 'Swinject'
+
+  # pod 'Alamofire'
+  # pod 'KeychainAccess'
+  # pod 'Marshal'
+  pod 'SwiftLint'
+  pod 'RxSwift'
+  pod 'SwiftyUserDefaults'
+
+  # pod 'BonMot'
+  # pod 'Anchorage'
+  # pod 'Swiftilities' //min sdk = 9.0
+
+  target 'PRODUCTNAMETests' do
+  	inherit! :search_paths
+    # pod 'OHHTTPStubs/Swift'
+    # pod 'Quick'
+    # pod 'Nimble'
+  end
+
+end

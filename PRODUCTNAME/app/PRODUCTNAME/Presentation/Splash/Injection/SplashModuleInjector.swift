@@ -1,0 +1,42 @@
+//
+//  SplashModuleInjector.swift
+//  PRODUCTNAME
+//
+//  Created by LEADDEVELOPER on 01/06/2017.
+//  Copyright © 2017 ORGANIZATION. All rights reserved.
+//
+
+import Foundation
+import Swinject
+
+class SplashModuleInjector: ModuleInjectionProtocol {
+    static let container = Container()
+
+    func setup() {
+        resolver.register(SplashViewController.self) { r in
+            let controller = SplashViewController()
+            let process = r.resolve(SplashProcessProtocol.self)
+
+            let interactor = r.resolve(SplashInteractorProtocol.self, argument: process)
+
+            controller.presenter = r.resolve(SplashPresenterProtocol.self, argument: interactor) as? BasePresenter
+            return controller
+        }
+
+        resolver.register(SplashPresenterProtocol.self) { (_, interactor: SplashInteractorProtocol?) in
+            SplashPresenter(interactor: interactor)
+        }
+
+        resolver.register(SplashInteractorProtocol.self) { (_, process: SplashProcessProtocol?) in
+            SplashInteractor(process: process)
+        }
+
+        resolver.register(SplashProcessProtocol.self) { _ in
+            SplashProcess()
+        }
+    }
+}
+
+extension SplashModuleInjector {
+    var resolver: Container { return SplashModuleInjector.container }
+}
