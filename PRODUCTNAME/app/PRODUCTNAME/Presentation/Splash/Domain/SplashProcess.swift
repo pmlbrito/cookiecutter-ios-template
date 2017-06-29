@@ -15,8 +15,13 @@ protocol SplashProcessProtocol {
 
 class SplashProcess: SplashProcessProtocol {
 
-    func checkUserWelcome() -> Single<BoolProcessResult> {
-        return Single.just(BoolProcessResult(status: ProcessResult.Status.ok, resultValue: UserDefaultsManagerInjector().resolver.resolve(UserDefaultsManager.self)!.userWelcomeDone))
+    var defaultsManager: UserDefaultsManager?
+
+    init(userDefaults: UserDefaultsManager?) {
+        self.defaultsManager = userDefaults
     }
 
+    func checkUserWelcome() -> Single<BoolProcessResult> {
+        return Single.just(BoolProcessResult(status: ProcessResult.Status.ok, resultValue: self.defaultsManager?.userWelcomeDone ?? false))
+    }
 }
