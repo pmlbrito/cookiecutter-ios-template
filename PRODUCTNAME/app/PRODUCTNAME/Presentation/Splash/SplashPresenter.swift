@@ -16,8 +16,6 @@ protocol SplashPresenterProtocol: BasePresenterProtocol {
 class SplashPresenter: BasePresenter, SplashPresenterProtocol {
     var interactor: SplashInteractorProtocol?
 
-    var disposeBag = DisposeBag()
-
     init(interactor: SplashInteractorProtocol?) {
         self.interactor = interactor
     }
@@ -35,13 +33,19 @@ class SplashPresenter: BasePresenter, SplashPresenterProtocol {
     }
 
     func processInitialConfigsLoad(model: [String: Any]) {
-        viewController?.hideLoadingIndicator()
+        self.viewController?.hideLoadingIndicator()
         let processResponseModel = SplashViewModel(dictionary: model)
 
         if processResponseModel.error != nil {
             (viewController as? SplashViewControllerProtocol)?.displayError(error: processResponseModel.error!)
             return
         }
-        (viewController as? SplashViewControllerProtocol)?.splashLoadingFinished(viewModel: processResponseModel)
+
+        if let processResult = processResponseModel.success, processResult == true {
+            //TODO: go to login
+            return
+        }
+
+        self.viewController?.transtitionToNextViewController(fromViewController: self.viewController!, destinationViewController: OnboardingModuleInjector().resolver.resolve(OnboardingViewController.self), transitionType: ViewControllerPresentationType.ReplaceAtRoot)
     }
 }

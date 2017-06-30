@@ -10,7 +10,6 @@ import UIKit
 
 protocol SplashViewControllerProtocol: BaseViewControllerProtocol {
     func displayError(error: BaseError)
-    func splashLoadingFinished(viewModel: SplashViewModel)
 }
 
 class SplashViewController: BaseViewController, SplashViewControllerProtocol {
@@ -31,11 +30,5 @@ class SplashViewController: BaseViewController, SplashViewControllerProtocol {
 extension SplashViewController {
     func displayError(error: BaseError) {
         self.showError(error: error)
-        self.view.backgroundColor = UIColor.red
-    }
-    func splashLoadingFinished(viewModel: SplashViewModel) {
-        if viewModel.success != nil && viewModel.success! {
-            self.view.backgroundColor = UIColor.green
-        }
     }
 }

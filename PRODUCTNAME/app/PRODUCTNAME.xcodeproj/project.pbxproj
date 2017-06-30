@@ -14,6 +14,15 @@
 		3F6408321EE36D1E000E20E5 /* BasePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6408311EE36D1E000E20E5 /* BasePresenter.swift */; };
 		3F6408351EE37305000E20E5 /* SplashModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6408341EE37305000E20E5 /* SplashModels.swift */; };
 		3F6408371EE37380000E20E5 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6408361EE37380000E20E5 /* BaseViewModel.swift */; };
+		4226F01B1F067F3700EF762A /* OnboardingSamplePageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4226F0191F067F3700EF762A /* OnboardingSamplePageViewModel.swift */; };
+		4226F01F1F06813600EF762A /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4226F01D1F06813600EF762A /* UIColor+Extensions.swift */; };
+		4226F0201F06813600EF762A /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4226F01E1F06813600EF762A /* UIView+Extensions.swift */; };
+		4226F0231F0681BC00EF762A /* ColorSchemes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4226F0221F0681BC00EF762A /* ColorSchemes.swift */; };
+		4226F0261F068BF300EF762A /* OnboardingModuleInjector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4226F0251F068BF300EF762A /* OnboardingModuleInjector.swift */; };
+		4226F0291F06903000EF762A /* OnboardingProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4226F0281F06903000EF762A /* OnboardingProcess.swift */; };
+		4226F02B1F06A3BD00EF762A /* OnboardingInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4226F02A1F06A3BD00EF762A /* OnboardingInteractor.swift */; };
+		4226F02E1F06A95D00EF762A /* OnboardingSamplePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4226F02D1F06A95D00EF762A /* OnboardingSamplePageViewController.swift */; };
+		4226F0301F06AB0000EF762A /* OnboardingPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4226F02F1F06AB0000EF762A /* OnboardingPresenter.swift */; };
 		423ED6CA1EDDC2FC00C9982C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423ED6C91EDDC2FC00C9982C /* AppDelegate.swift */; };
 		423ED6D11EDDC2FC00C9982C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 423ED6D01EDDC2FC00C9982C /* Assets.xcassets */; };
 		423ED6D41EDDC2FC00C9982C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 423ED6D21EDDC2FC00C9982C /* LaunchScreen.storyboard */; };
@@ -27,7 +36,6 @@
 		423ED6FF1EE0470500C9982C /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423ED6FE1EE0470500C9982C /* SplashViewController.swift */; };
 		423ED7031EE0479100C9982C /* SplashModuleInjector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423ED7021EE0479100C9982C /* SplashModuleInjector.swift */; };
 		427F494B1EF92B3E00A6DD1F /* LoadingOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427F494A1EF92B3E00A6DD1F /* LoadingOverlay.swift */; };
-		427F494E1EF930F900A6DD1F /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427F494D1EF930F900A6DD1F /* UIViewExtensions.swift */; };
 		427F49501EF931D600A6DD1F /* BaseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427F494F1EF931D600A6DD1F /* BaseError.swift */; };
 		4280FFC51F03CF17009DE4C4 /* ProcessResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4280FFC41F03CF17009DE4C4 /* ProcessResult.swift */; };
 		4280FFC71F03D1A7009DE4C4 /* BoolProcessResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4280FFC61F03D1A7009DE4C4 /* BoolProcessResult.swift */; };
@@ -35,6 +43,7 @@
 		4280FFCB1F03D575009DE4C4 /* SplashProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4280FFC91F03D575009DE4C4 /* SplashProcess.swift */; };
 		4280FFCE1F03F329009DE4C4 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4280FFCD1F03F329009DE4C4 /* UserDefaultsManager.swift */; };
 		4280FFD11F03F7E2009DE4C4 /* UserDefaultsManagerInjector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4280FFD01F03F7E2009DE4C4 /* UserDefaultsManagerInjector.swift */; };
+		42C25B821F05326800656158 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C25B811F05326800656158 /* OnboardingViewController.swift */; };
 		BA75127B41A29DF6D64D58AA /* Pods_PRODUCTNAMETests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 659FBB52C10F5DA7A6F6DE9A /* Pods_PRODUCTNAMETests.framework */; };
 /* End PBXBuildFile section */
 
@@ -55,6 +64,15 @@
 		3F6408311EE36D1E000E20E5 /* BasePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasePresenter.swift; sourceTree = "<group>"; };
 		3F6408341EE37305000E20E5 /* SplashModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashModels.swift; sourceTree = "<group>"; };
 		3F6408361EE37380000E20E5 /* BaseViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
+		4226F0191F067F3700EF762A /* OnboardingSamplePageViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingSamplePageViewModel.swift; sourceTree = "<group>"; };
+		4226F01D1F06813600EF762A /* UIColor+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
+		4226F01E1F06813600EF762A /* UIView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
+		4226F0221F0681BC00EF762A /* ColorSchemes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorSchemes.swift; sourceTree = "<group>"; };
+		4226F0251F068BF300EF762A /* OnboardingModuleInjector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingModuleInjector.swift; sourceTree = "<group>"; };
+		4226F0281F06903000EF762A /* OnboardingProcess.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingProcess.swift; sourceTree = "<group>"; };
+		4226F02A1F06A3BD00EF762A /* OnboardingInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingInteractor.swift; sourceTree = "<group>"; };
+		4226F02D1F06A95D00EF762A /* OnboardingSamplePageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingSamplePageViewController.swift; sourceTree = "<group>"; };
+		4226F02F1F06AB0000EF762A /* OnboardingPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingPresenter.swift; sourceTree = "<group>"; };
 		423ED6C61EDDC2FC00C9982C /* PRODUCTNAME.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PRODUCTNAME.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		423ED6C91EDDC2FC00C9982C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		423ED6D01EDDC2FC00C9982C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -72,7 +90,6 @@
 		423ED6FE1EE0470500C9982C /* SplashViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		423ED7021EE0479100C9982C /* SplashModuleInjector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashModuleInjector.swift; sourceTree = "<group>"; };
 		427F494A1EF92B3E00A6DD1F /* LoadingOverlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingOverlay.swift; sourceTree = "<group>"; };
-		427F494D1EF930F900A6DD1F /* UIViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
 		427F494F1EF931D600A6DD1F /* BaseError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseError.swift; sourceTree = "<group>"; };
 		4280FFC41F03CF17009DE4C4 /* ProcessResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProcessResult.swift; sourceTree = "<group>"; };
 		4280FFC61F03D1A7009DE4C4 /* BoolProcessResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoolProcessResult.swift; sourceTree = "<group>"; };
@@ -80,6 +97,7 @@
 		4280FFC91F03D575009DE4C4 /* SplashProcess.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashProcess.swift; sourceTree = "<group>"; };
 		4280FFCD1F03F329009DE4C4 /* UserDefaultsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 		4280FFD01F03F7E2009DE4C4 /* UserDefaultsManagerInjector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsManagerInjector.swift; sourceTree = "<group>"; };
+		42C25B811F05326800656158 /* OnboardingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		469DC03CB8B625A266569DED /* Pods-PRODUCTNAME.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PRODUCTNAME.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PRODUCTNAME/Pods-PRODUCTNAME.debug.xcconfig"; sourceTree = "<group>"; };
 		5744C986D43E752C3C5E59CD /* Pods_PRODUCTNAME.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PRODUCTNAME.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		581473308CC904434C353350 /* Pods-PRODUCTNAMETests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PRODUCTNAMETests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PRODUCTNAMETests/Pods-PRODUCTNAMETests.release.xcconfig"; sourceTree = "<group>"; };
@@ -111,6 +129,7 @@
 		3F6408281EE3671E000E20E5 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				4226F01C1F067FD900EF762A /* Definitions */,
 				427F49491EF92B0E00A6DD1F /* Views */,
 				3F6408311EE36D1E000E20E5 /* BasePresenter.swift */,
 				3F64082D1EE3698C000E20E5 /* BaseViewController.swift */,
@@ -136,6 +155,39 @@
 				4280FFC61F03D1A7009DE4C4 /* BoolProcessResult.swift */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		4226F01C1F067FD900EF762A /* Definitions */ = {
+			isa = PBXGroup;
+			children = (
+				4226F0221F0681BC00EF762A /* ColorSchemes.swift */,
+			);
+			path = Definitions;
+			sourceTree = "<group>";
+		};
+		4226F0241F068BCD00EF762A /* Injection */ = {
+			isa = PBXGroup;
+			children = (
+				4226F0251F068BF300EF762A /* OnboardingModuleInjector.swift */,
+			);
+			path = Injection;
+			sourceTree = "<group>";
+		};
+		4226F0271F06900B00EF762A /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				4226F0281F06903000EF762A /* OnboardingProcess.swift */,
+				4226F02A1F06A3BD00EF762A /* OnboardingInteractor.swift */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		4226F02C1F06A8F700EF762A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4226F02D1F06A95D00EF762A /* OnboardingSamplePageViewController.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		423ED6BD1EDDC2FC00C9982C = {
@@ -277,7 +329,8 @@
 		427F494C1EF9306400A6DD1F /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				427F494D1EF930F900A6DD1F /* UIViewExtensions.swift */,
+				4226F01D1F06813600EF762A /* UIColor+Extensions.swift */,
+				4226F01E1F06813600EF762A /* UIView+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -285,6 +338,12 @@
 		427F49551EF972E300A6DD1F /* OnBoarding */ = {
 			isa = PBXGroup;
 			children = (
+				4226F02C1F06A8F700EF762A /* Views */,
+				4226F0271F06900B00EF762A /* Domain */,
+				4226F0241F068BCD00EF762A /* Injection */,
+				4226F0191F067F3700EF762A /* OnboardingSamplePageViewModel.swift */,
+				42C25B811F05326800656158 /* OnboardingViewController.swift */,
+				4226F02F1F06AB0000EF762A /* OnboardingPresenter.swift */,
 			);
 			path = OnBoarding;
 			sourceTree = "<group>";
@@ -559,18 +618,27 @@
 			buildActionMask = 2147483647;
 			files = (
 				423ED7031EE0479100C9982C /* SplashModuleInjector.swift in Sources */,
+				4226F0291F06903000EF762A /* OnboardingProcess.swift in Sources */,
+				4226F01B1F067F3700EF762A /* OnboardingSamplePageViewModel.swift in Sources */,
 				4280FFCA1F03D575009DE4C4 /* SplashInteractor.swift in Sources */,
+				4226F02E1F06A95D00EF762A /* OnboardingSamplePageViewController.swift in Sources */,
 				423ED6F81EE038FF00C9982C /* LoggingConfiguration.swift in Sources */,
 				4280FFCE1F03F329009DE4C4 /* UserDefaultsManager.swift in Sources */,
+				42C25B821F05326800656158 /* OnboardingViewController.swift in Sources */,
 				3F64082E1EE3698C000E20E5 /* BaseViewController.swift in Sources */,
 				427F494B1EF92B3E00A6DD1F /* LoadingOverlay.swift in Sources */,
 				423ED6FB1EE03E2000C9982C /* Log.swift in Sources */,
+				4226F0261F068BF300EF762A /* OnboardingModuleInjector.swift in Sources */,
 				423ED6F51EE0363B00C9982C /* BuildType.swift in Sources */,
 				423ED6FD1EE045AD00C9982C /* ModuleInjectionProtocol.swift in Sources */,
 				4280FFC51F03CF17009DE4C4 /* ProcessResult.swift in Sources */,
+				4226F0301F06AB0000EF762A /* OnboardingPresenter.swift in Sources */,
 				427F49501EF931D600A6DD1F /* BaseError.swift in Sources */,
+				4226F0201F06813600EF762A /* UIView+Extensions.swift in Sources */,
 				3F6408351EE37305000E20E5 /* SplashModels.swift in Sources */,
 				4280FFD11F03F7E2009DE4C4 /* UserDefaultsManagerInjector.swift in Sources */,
+				4226F02B1F06A3BD00EF762A /* OnboardingInteractor.swift in Sources */,
+				4226F0231F0681BC00EF762A /* ColorSchemes.swift in Sources */,
 				423ED6F31EE025BA00C9982C /* CrashReportingConfiguration.swift in Sources */,
 				4280FFCB1F03D575009DE4C4 /* SplashProcess.swift in Sources */,
 				423ED6F01EE0251600C9982C /* AppLifecycleConfiguration.swift in Sources */,
@@ -579,8 +647,8 @@
 				4280FFC71F03D1A7009DE4C4 /* BoolProcessResult.swift in Sources */,
 				3F6408371EE37380000E20E5 /* BaseViewModel.swift in Sources */,
 				423ED6CA1EDDC2FC00C9982C /* AppDelegate.swift in Sources */,
-				427F494E1EF930F900A6DD1F /* UIViewExtensions.swift in Sources */,
 				423ED6FF1EE0470500C9982C /* SplashViewController.swift in Sources */,
+				4226F01F1F06813600EF762A /* UIColor+Extensions.swift in Sources */,
 				3F6408301EE36C76000E20E5 /* SplashPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -719,7 +787,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "$(SRCROOT)/PRODUCTNAME/Resources/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.company.PRODUCTNAME;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -736,7 +804,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "$(SRCROOT)/PRODUCTNAME/Resources/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.company.PRODUCTNAME;
 				PRODUCT_NAME = "$(TARGET_NAME)";

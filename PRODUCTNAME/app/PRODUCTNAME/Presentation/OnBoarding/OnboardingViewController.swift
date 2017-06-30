@@ -1,0 +1,197 @@
+//
+//  OnboardingViewController.swift
+//  PRODUCTNAME
+//
+//  Created by LEADDEVELOPER on 29/06/2017.
+//  Copyright © 2017 ORGANIZATION. All rights reserved.
+//
+
+import UIKit
+import Anchorage
+import Swiftilities
+
+// MARK: OnboardingViewControllerDelegate
+protocol OnboardingViewControllerDelegate: class {
+
+    func skipTapped(for controller: OnboardingViewController)
+    func joinTapped(for controller: OnboardingViewController)
+    func signInTapped(for controller: OnboardingViewController)
+
+}
+
+
+struct OnboardingContent {
+
+    static var pageViewModels: [OnboardingSamplePageViewModel] {
+        let samplePage = OnboardingSamplePageViewModel(
+            header: "PRODUCTNAME welcome",
+            body: "Your bones don't break, mine do. You don't get sick, I do. But for some reason, you and I react the exact same way to water. We are connected, you and I. We're on the same curve, just on opposite ends.",
+            asset: #imageLiteral(resourceName: "ic_content_image")
+        )
+        return [samplePage, samplePage, samplePage]
+    }
+    
+}
+
+protocol OnboardingViewControllerProtocol: BaseViewControllerProtocol {
+
+}
+
+// MARK: OnboardingPageViewController
+class OnboardingViewController: BaseViewController, OnboardingViewControllerProtocol {
+
+    fileprivate let viewControllers: [UIViewController]
+
+    fileprivate let skipButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("SKIP", for: .normal) //TODO: localization
+        button.setTitleColor(ColorSchemes.darkGray, for: .normal)
+        button.setTitleColor(ColorSchemes.darkGray.highlighted, for: .highlighted)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 18)
+        return button
+    }()
+    fileprivate let pageController = UIPageViewController(
+        transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
+    fileprivate let firstHairline = HairlineView(axis: .horizontal)
+    fileprivate let joinButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("JOIN", for: .normal) //TODO: localization
+        button.setTitleColor(ColorSchemes.green, for: .normal)
+        button.setTitleColor(ColorSchemes.green.highlighted, for: .highlighted)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 17)
+        return button
+    }()
+    fileprivate let secondHairline = HairlineView(axis: .horizontal)
+    fileprivate let signInButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("SIGN IN", for: .normal) //TODO: localization
+        button.setTitleColor(ColorSchemes.darkGray, for: .normal)
+        button.setTitleColor(ColorSchemes.darkGray.highlighted, for: .highlighted)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 16)
+        return button
+    }()
+    weak var delegate: OnboardingViewControllerDelegate?
+
+    init(viewModels: [OnboardingSamplePageViewModel]) {
+        self.viewControllers = viewModels.map {
+            OnboardingSamplePageViewController(viewModel: $0)
+        }
+        super.init(nibName: nil, bundle: nil)
+
+    }
+
+    @available(*, unavailable) required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        configureView()
+        configureLayout()
+    }
+
+}
+
+// MARK: Private
+private extension OnboardingViewController {
+
+    func configureView() {
+        view.backgroundColor = .white
+        view.addSubview(skipButton)
+        skipButton.addTarget(self, action: #selector(skipTapped), for: .touchUpInside)
+
+        pageController.setViewControllers(
+            [viewControllers[0]], direction: .forward, animated: false, completion: nil)
+        pageController.dataSource = self
+        addChildViewController(pageController)
+        view.addSubview(pageController.view)
+        pageController.didMove(toParentViewController: self)
+
+        let pageControlAppearance = UIPageControl.appearance(whenContainedInInstancesOf: [OnboardingViewController.self])
+        pageControlAppearance.pageIndicatorTintColor = ColorSchemes.lightGray
+        pageControlAppearance.currentPageIndicatorTintColor = ColorSchemes.darkGray
+
+        view.addSubview(firstHairline)
+        joinButton.addTarget(self, action: #selector(joinTapped), for: .touchUpInside)
+        view.addSubview(joinButton)
+        view.addSubview(secondHairline)
+        signInButton.addTarget(self, action: #selector(signInTapped), for: .touchUpInside)
+        view.addSubview(signInButton)
+    }
+
+    struct Layout {
+        static let skipButtonTrailingInset = CGFloat(20)
+        static let skipButtonTopInset = CGFloat(22)
+        static let pageViewTopSpace = CGFloat(20)
+        static let joinVerticalSpace = CGFloat(8)
+        static let signInVerticalSpace = CGFloat(18)
+    }
+
+    func configureLayout() {
+        skipButton.topAnchor == view.topAnchor + Layout.skipButtonTopInset
+        skipButton.trailingAnchor == view.trailingAnchor - Layout.skipButtonTrailingInset
+
+        pageController.view.topAnchor == skipButton.bottomAnchor + Layout.pageViewTopSpace
+        pageController.view.horizontalAnchors == view.horizontalAnchors
+
+        firstHairline.topAnchor == pageController.view.bottomAnchor
+        firstHairline.horizontalAnchors == view.horizontalAnchors
+
+        joinButton.horizontalAnchors == view.horizontalAnchors
+        joinButton.topAnchor == firstHairline.bottomAnchor + Layout.joinVerticalSpace
+        joinButton.bottomAnchor == secondHairline.topAnchor - Layout.joinVerticalSpace
+
+        secondHairline.horizontalAnchors == view.horizontalAnchors
+
+        signInButton.horizontalAnchors == view.horizontalAnchors
+        signInButton.topAnchor == secondHairline.bottomAnchor + Layout.signInVerticalSpace
+        signInButton.bottomAnchor == view.bottomAnchor - Layout.signInVerticalSpace
+    }
+
+}
+
+// MARK: OnboadingViewControllerDelegate Actions
+private extension OnboardingViewController {
+
+    @objc func skipTapped() {
+        delegate?.skipTapped(for: self)
+    }
+
+    @objc func joinTapped() {
+        delegate?.joinTapped(for: self)
+    }
+
+    @objc func signInTapped() {
+        delegate?.signInTapped(for: self)
+    }
+}
+
+// MARK: UIPageViewControllerDataSource
+extension OnboardingViewController: UIPageViewControllerDataSource {
+
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
+        guard let index = viewControllers.index(of: viewController), index > 0 else {
+            return nil
+        }
+        return viewControllers[index - 1]
+    }
+
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
+        guard let index = viewControllers.index(of: viewController),
+            index < viewControllers.count - 1 else {
+                return nil
+        }
+        return viewControllers[index + 1]
+    }
+
+    func presentationCount(for pageViewController: UIPageViewController) -> Int {
+        return viewControllers.count
+    }
+
+    func presentationIndex(for pageViewController: UIPageViewController) -> Int {
+        guard let current = pageViewController.viewControllers?.first else {
+            return 0
+        }
+        return viewControllers.index(of: current) ?? 0
+    }
+}

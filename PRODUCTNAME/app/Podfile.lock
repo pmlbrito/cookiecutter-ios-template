@@ -1,4 +1,5 @@
 PODS:
+  - Anchorage (4.0.0)
   - Crashlytics (3.8.4):
     - Fabric (~> 1.6.3)
   - Fabric (1.6.11)
@@ -6,6 +7,62 @@ PODS:
     - ObjcExceptionBridging/ObjcExceptionBridging (= 1.0.1)
   - ObjcExceptionBridging/ObjcExceptionBridging (1.0.1)
   - RxSwift (3.5.0)
+  - Swiftilities (0.14.0):
+    - Swiftilities/All (= 0.14.0)
+  - Swiftilities/AboutView (0.14.0)
+  - Swiftilities/AccessibilityHelpers (0.14.0)
+  - Swiftilities/Acknowledgements (0.14.0):
+    - Swiftilities/Deselection
+    - Swiftilities/LicenseFormatter
+  - Swiftilities/All (0.14.0):
+    - Swiftilities/AboutView
+    - Swiftilities/AccessibilityHelpers
+    - Swiftilities/Acknowledgements
+    - Swiftilities/BetterButton
+    - Swiftilities/ColorHelpers
+    - Swiftilities/CoreDataStack
+    - Swiftilities/Deselection
+    - Swiftilities/DeviceSize
+    - Swiftilities/FormattedTextField
+    - Swiftilities/Forms
+    - Swiftilities/HairlineView
+    - Swiftilities/ImageHelpers
+    - Swiftilities/Keyboard
+    - Swiftilities/LicenseFormatter
+    - Swiftilities/Lifecycle
+    - Swiftilities/Logging
+    - Swiftilities/Math
+    - Swiftilities/RootViewController
+    - Swiftilities/Shapes
+    - Swiftilities/StackViewHelpers
+    - Swiftilities/TableViewHelpers
+    - Swiftilities/TintedButton
+    - Swiftilities/Views
+  - Swiftilities/BetterButton (0.14.0):
+    - Swiftilities/ColorHelpers
+    - Swiftilities/ImageHelpers
+    - Swiftilities/Shapes
+  - Swiftilities/ColorHelpers (0.14.0)
+  - Swiftilities/CoreDataStack (0.14.0)
+  - Swiftilities/Deselection (0.14.0)
+  - Swiftilities/DeviceSize (0.14.0)
+  - Swiftilities/FormattedTextField (0.14.0)
+  - Swiftilities/Forms (0.14.0)
+  - Swiftilities/HairlineView (0.14.0)
+  - Swiftilities/ImageHelpers (0.14.0)
+  - Swiftilities/Keyboard (0.14.0)
+  - Swiftilities/LicenseFormatter (0.14.0)
+  - Swiftilities/Lifecycle (0.14.0):
+    - Swiftilities/HairlineView
+    - Swiftilities/Math
+  - Swiftilities/Logging (0.14.0)
+  - Swiftilities/Math (0.14.0)
+  - Swiftilities/RootViewController (0.14.0)
+  - Swiftilities/Shapes (0.14.0)
+  - Swiftilities/StackViewHelpers (0.14.0)
+  - Swiftilities/TableViewHelpers (0.14.0)
+  - Swiftilities/TintedButton (0.14.0)
+  - Swiftilities/Views (0.14.0)
   - SwiftLint (0.19.0)
   - SwiftyUserDefaults (3.0.0)
   - Swinject (2.1.0)
@@ -15,23 +72,27 @@ PODS:
     - ObjcExceptionBridging
 
 DEPENDENCIES:
+  - Anchorage
   - Crashlytics
   - RxSwift
+  - Swiftilities
   - SwiftLint
   - SwiftyUserDefaults
   - Swinject
   - XCGLogger
 
 SPEC CHECKSUMS:
+  Anchorage: fe50dca4e20846b8cb15c859d26fec5132b41577
   Crashlytics: 79e236942ca1e7fc641df1feb9a275360a78ab6a
   Fabric: 5911403591946b8228ab1c51d98f1d7137e863c6
   ObjcExceptionBridging: c30e00eb3700467e695faeea30e26e18bd445001
   RxSwift: 18ee9d78b45edb3b0b7e79916b47a116e6dbc842
+  Swiftilities: 7b646f8b74adaf85c9fc3aa645ab79bda7643c4b
   SwiftLint: 3537a05b34060e78e7510f04fb7537d738247803
   SwiftyUserDefaults: 0f1d45fc3aafb9064dac661e367f8f83fe21a4b4
   Swinject: 85e468ac75c5c2d234076f98c591d57d56bc64bc
   XCGLogger: 0b43697155d41e4a1b15fc776f319c2141646b09
 
-PODFILE CHECKSUM: d3dbf71413e1a3c8dd49d038936ed29ea72b619a
+PODFILE CHECKSUM: 0ae906b38051d546ffd96a0264d83c3eb18c9787
 
 COCOAPODS: 1.2.1

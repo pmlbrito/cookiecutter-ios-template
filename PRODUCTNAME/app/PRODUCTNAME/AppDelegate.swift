@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // Anything that doesn't rely on the existence of a viewcontroller should be in this preWindowConfigurations array
     let preWindowConfigurations: [AppLifecycleConfiguration] = [LoggingConfiguration(),CrashReportingConfiguration()]
 
-    let moduleInjections: [ModuleInjectionProtocol] = [UserDefaultsManagerInjector(),SplashModuleInjector()]
+    let moduleInjections: [ModuleInjectionProtocol] = [UserDefaultsManagerInjector(),SplashModuleInjector(), OnboardingModuleInjector()]
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Don't load the main UI if we're unit testing.
