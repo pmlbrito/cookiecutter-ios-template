@@ -1,0 +1,25 @@
+platform :ios, '9.0'
+use_frameworks!
+
+target '{{ cookiecutter.project_name | replace(' ', '') }}' do
+  pod 'Crashlytics'
+  pod 'XCGLogger'
+  pod 'Swinject'
+
+  # pod 'Alamofire'
+
+  pod 'SwiftLint'
+  pod 'RxSwift'
+  pod 'SwiftyUserDefaults'
+  pod 'Anchorage'
+  pod 'Swiftilities'
+  pod 'KeychainAccess'
+
+  target '{{ cookiecutter.project_name | replace(' ', '') }}Tests' do
+  	inherit! :search_paths
+    # pod 'OHHTTPStubs/Swift'
+    # pod 'Quick'
+    # pod 'Nimble'
+  end
+
+end
