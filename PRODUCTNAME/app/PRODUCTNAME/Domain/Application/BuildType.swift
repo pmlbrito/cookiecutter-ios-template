@@ -26,4 +26,11 @@ enum BuildType {
             return .release
         #endif
     }
+
+    func identifier(suffix: String) -> String {
+        guard let bundleIdentifier = Bundle(for: AppDelegate.self).bundleIdentifier else {
+            fatalError("Unable to determine bundle identifier")
+        }
+        return bundleIdentifier.appending(".").appending(suffix)
+    }
 }

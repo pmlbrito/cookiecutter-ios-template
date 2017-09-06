@@ -42,7 +42,8 @@ class SplashPresenter: BasePresenter, SplashPresenterProtocol {
         }
 
         if let processResult = processResponseModel.success, processResult == true {
-            //TODO: go to login
+            //go to login
+            self.viewController?.transtitionToNextViewController(fromViewController: self.viewController!, destinationViewController: SignInModuleInjector().resolver.resolve(SignInViewController.self), transitionType: ViewControllerPresentationType.ReplaceAtRoot)
             return
         }
 

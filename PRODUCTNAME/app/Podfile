@@ -13,6 +13,7 @@ target 'PRODUCTNAME' do
   pod 'SwiftyUserDefaults'
   pod 'Anchorage'
   pod 'Swiftilities'
+  pod 'KeychainAccess'
 
   target 'PRODUCTNAMETests' do
   	inherit! :search_paths

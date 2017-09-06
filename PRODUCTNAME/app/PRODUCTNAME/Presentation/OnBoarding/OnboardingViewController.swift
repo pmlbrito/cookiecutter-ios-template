@@ -10,29 +10,6 @@ import UIKit
 import Anchorage
 import Swiftilities
 
-// MARK: OnboardingViewControllerDelegate
-protocol OnboardingViewControllerDelegate: class {
-
-    func skipTapped(for controller: OnboardingViewController)
-    func joinTapped(for controller: OnboardingViewController)
-    func signInTapped(for controller: OnboardingViewController)
-
-}
-
-
-struct OnboardingContent {
-
-    static var pageViewModels: [OnboardingSamplePageViewModel] {
-        let samplePage = OnboardingSamplePageViewModel(
-            header: "PRODUCTNAME welcome",
-            body: "Your bones don't break, mine do. You don't get sick, I do. But for some reason, you and I react the exact same way to water. We are connected, you and I. We're on the same curve, just on opposite ends.",
-            asset: #imageLiteral(resourceName: "ic_content_image")
-        )
-        return [samplePage, samplePage, samplePage]
-    }
-    
-}
-
 protocol OnboardingViewControllerProtocol: BaseViewControllerProtocol {
 
 }
@@ -70,16 +47,15 @@ class OnboardingViewController: BaseViewController, OnboardingViewControllerProt
         button.titleLabel?.font = UIFont.systemFont(ofSize: 16)
         return button
     }()
-    weak var delegate: OnboardingViewControllerDelegate?
 
     init(viewModels: [OnboardingSamplePageViewModel]) {
         self.viewControllers = viewModels.map {
             OnboardingSamplePageViewController(viewModel: $0)
         }
         super.init(nibName: nil, bundle: nil)
-
     }
 
+    //this is necessary because we are declaring a custom constructor for the class
     @available(*, unavailable) required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -89,7 +65,6 @@ class OnboardingViewController: BaseViewController, OnboardingViewControllerProt
         configureView()
         configureLayout()
     }
-
 }
 
 // MARK: Private
@@ -150,19 +125,20 @@ private extension OnboardingViewController {
 
 }
 
-// MARK: OnboadingViewControllerDelegate Actions
+// MARK: Actions Handling
 private extension OnboardingViewController {
 
     @objc func skipTapped() {
-        delegate?.skipTapped(for: self)
+        //delegate?.skipTapped(for: self)
+        (self.presenter as? OnboardingPresenterProtocol)?.userFinishedWelcome(action: OnboardingQuitActions.skip)
     }
 
     @objc func joinTapped() {
-        delegate?.joinTapped(for: self)
+         (self.presenter as? OnboardingPresenterProtocol)?.userFinishedWelcome(action: OnboardingQuitActions.register)
     }
 
     @objc func signInTapped() {
-        delegate?.signInTapped(for: self)
+         (self.presenter as? OnboardingPresenterProtocol)?.userFinishedWelcome(action: OnboardingQuitActions.sign_in)
     }
 }
 

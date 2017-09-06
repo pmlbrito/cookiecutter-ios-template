@@ -22,6 +22,7 @@ Inspired by [Raizlabs]/[ios-template]
    - [SwiftyUserDefaults][radex] - "Modern Swift API for NSUserDefaults"
    - [Anchorage][anchorage] - "A lightweight collection of intuitive operators and utilities that simplify iOS layout code."
    - [Swiftilities][swiftilities] - Keyboard avoidance guides, lifecycle event code injection, about view, accessibility helpers, color helpers, device size detection, hairline views, logging
+   - [KeychainAccess][keychainaccess] - Wrapper for keychain APIs. Used by the Oath implementation to protect credentials
    - [OHHTTPStubs][ohhttpstubs] - Stub API requests with edge case datasets for unit tests or to fake an endpoint while it is in development.
 
 [pods]: PRODUCTNAME/app/Podfile
@@ -35,6 +36,7 @@ Inspired by [Raizlabs]/[ios-template]
 [radex]: https://github.com/radex/SwiftyUserDefaults
 [anchorage]: https://github.com/Raizlabs/Anchorage
 [swiftilities]: https://github.com/Raizlabs/Swiftilities
+[keychainaccess]: https://github.com/kishikawakatsumi/KeychainAccess
 [ohhttpstubs]: https://github.com/AliSoftware/OHHTTPStubs
 [fastlane]: https://github.com/fastlane/fastlane
 [venmo]: https://github.com/venmo/synx

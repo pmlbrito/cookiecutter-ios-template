@@ -2,16 +2,21 @@
 //  OnboardingPresenter.swift
 //  PRODUCTNAME
 //
-//  Created by Pedro Brito on 30/06/2017.
-//  Copyright © 2017 pmlb. All rights reserved.
+//  Created by LEADDEVELOPER on 30/06/2017.
+//  Copyright © 2017 ORGANIZATION. All rights reserved.
 //
 
 import Foundation
-
 import RxSwift
 
+enum OnboardingQuitActions: Int {
+    case skip = 0
+    case register = 1
+    case sign_in = 2
+}
+
 protocol OnboardingPresenterProtocol: BasePresenterProtocol {
-    func userFinishedWelcome()
+    func userFinishedWelcome(action: OnboardingQuitActions)
 }
 
 class OnboardingPresenter: BasePresenter, OnboardingPresenterProtocol {
@@ -21,11 +26,11 @@ class OnboardingPresenter: BasePresenter, OnboardingPresenterProtocol {
         self.interactor = interactor
     }
 
-    func userFinishedWelcome() {
+    func userFinishedWelcome(action: OnboardingQuitActions) {
         self.viewController?.showLoadingIndicator()
         //call Process
         if let subscription = self.interactor?.updateUserWelcomeStatus().observeOn(MainScheduler.instance).subscribe(onSuccess: { (result) in
-            self.processUserActionResult(model: ["success": (!result.hasError() && result.result)])
+            self.processUserActionResult(model: ["success": (!result.hasError() && result.result), "action": action])
         }, onError: { (error) in
             self.processUserActionResult(model: ["success": false, "error": BaseError(description: error.localizedDescription)])
         }) {
@@ -42,10 +47,36 @@ class OnboardingPresenter: BasePresenter, OnboardingPresenterProtocol {
             return
         }
 
+        //TODO: trigger correspondant viewcontroller method
+
         if let processResult = processResponseModel.success, processResult == true {
-            //TODO: go to login
-//            self.viewController?.transtitionToNextViewController(fromViewController: self.viewController!, destinationViewController: OnBoardingViewController(), transitionType: ViewControllerPresentationType.ReplaceAtRoot)
+            //TODO: check user action
+            if let action = model["action"] as? OnboardingQuitActions {
+
+                switch action {
+                case .skip:
+                    //TODO: go to login
+                    self.goToSignIn()
+                    break
+                case .sign_in:
+                    //TODO: go to login
+                    self.goToSignIn()
+                    break
+                case .register:
+                    self.goToRegister()
+                    break
+                }
+            }
             return
         }
+    }
+
+    func goToSignIn() {
+         self.viewController?.transtitionToNextViewController(fromViewController: self.viewController!, destinationViewController: SignInModuleInjector().resolver.resolve(SignInViewController.self), transitionType: ViewControllerPresentationType.ReplaceAtRoot)
+    }
+
+    func goToRegister() {
+        //TODO:
+        (viewController)?.showError(error: BaseError(description: "Feature Not Implemented YET"))
     }
 }

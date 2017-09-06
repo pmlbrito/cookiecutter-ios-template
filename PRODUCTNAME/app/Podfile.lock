@@ -3,6 +3,7 @@ PODS:
   - Crashlytics (3.8.4):
     - Fabric (~> 1.6.3)
   - Fabric (1.6.11)
+  - KeychainAccess (3.0.2)
   - ObjcExceptionBridging (1.0.1):
     - ObjcExceptionBridging/ObjcExceptionBridging (= 1.0.1)
   - ObjcExceptionBridging/ObjcExceptionBridging (1.0.1)
@@ -74,6 +75,7 @@ PODS:
 DEPENDENCIES:
   - Anchorage
   - Crashlytics
+  - KeychainAccess
   - RxSwift
   - Swiftilities
   - SwiftLint
@@ -85,6 +87,7 @@ SPEC CHECKSUMS:
   Anchorage: fe50dca4e20846b8cb15c859d26fec5132b41577
   Crashlytics: 79e236942ca1e7fc641df1feb9a275360a78ab6a
   Fabric: 5911403591946b8228ab1c51d98f1d7137e863c6
+  KeychainAccess: a986406022dfc7c634c691ad3bec670cc6a32002
   ObjcExceptionBridging: c30e00eb3700467e695faeea30e26e18bd445001
   RxSwift: 18ee9d78b45edb3b0b7e79916b47a116e6dbc842
   Swiftilities: 7b646f8b74adaf85c9fc3aa645ab79bda7643c4b
@@ -93,6 +96,6 @@ SPEC CHECKSUMS:
   Swinject: 85e468ac75c5c2d234076f98c591d57d56bc64bc
   XCGLogger: 0b43697155d41e4a1b15fc776f319c2141646b09
 
-PODFILE CHECKSUM: 396a3b1f2a416b27c787fc8d3b47454ac3d665c5
+PODFILE CHECKSUM: b1e0f128c265b9a7c929dc656560354d31f6d4f8
 
 COCOAPODS: 1.3.1
