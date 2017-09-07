@@ -27,7 +27,7 @@ open class ProcessResult {
         self.init(status: Status(rawValue: resultCode) ?? .unknown)
     }
 
-    init(status: Status, resultMessage: String) {
+    init(status: Status, resultMessage: String?) {
         self.statusCode = status
         self.message = resultMessage
     }

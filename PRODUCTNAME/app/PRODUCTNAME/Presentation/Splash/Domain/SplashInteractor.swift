@@ -22,6 +22,6 @@ class SplashInteractor: SplashInteractorProtocol {
     }
 
     func validateUserWelcomeStatus() -> Single<BoolProcessResult> {
-        return process?.checkUserWelcome().delaySubscription(RxTimeInterval(3), scheduler: MainScheduler.asyncInstance) ??  Single.just(BoolProcessResult(status: ProcessResult.Status.unknown, resultValue: false))
+        return process?.checkUserWelcome().delaySubscription(RxTimeInterval(2), scheduler: MainScheduler.asyncInstance) ??  Single.just(BoolProcessResult(status: ProcessResult.Status.unknown, resultValue: false))
     }
 }

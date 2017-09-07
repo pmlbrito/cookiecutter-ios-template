@@ -15,7 +15,9 @@ class SplashModuleInjector: ModuleInjectionProtocol {
     func setup() {
         resolver.register(SplashViewController.self) { r in
             let controller = SplashViewController()
-            let process = r.resolve(SplashProcessProtocol.self)
+
+            let defaultsManager = UserDefaultsManagerInjector().resolver.resolve(UserDefaultsManager.self)
+            let process = r.resolve(SplashProcessProtocol.self, argument: defaultsManager)
 
             let interactor = r.resolve(SplashInteractorProtocol.self, argument: process)
 
@@ -31,8 +33,8 @@ class SplashModuleInjector: ModuleInjectionProtocol {
             SplashInteractor(process: process)
         }
 
-        resolver.register(SplashProcessProtocol.self) { _ in
-            SplashProcess()
+        resolver.register(SplashProcessProtocol.self) { (_, userDefaults: UserDefaultsManager?) in
+            SplashProcess(userDefaults: userDefaults)
         }
     }
 }

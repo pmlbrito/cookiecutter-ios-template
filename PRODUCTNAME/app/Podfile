@@ -1,4 +1,4 @@
-platform :ios, '8.0'
+platform :ios, '9.0'
 use_frameworks!
 
 target 'PRODUCTNAME' do
@@ -7,15 +7,13 @@ target 'PRODUCTNAME' do
   pod 'Swinject'
 
   # pod 'Alamofire'
-  # pod 'KeychainAccess'
-  # pod 'Marshal'
+
   pod 'SwiftLint'
   pod 'RxSwift'
   pod 'SwiftyUserDefaults'
-
-  # pod 'BonMot'
-  # pod 'Anchorage'
-  # pod 'Swiftilities' //min sdk = 9.0
+  pod 'Anchorage'
+  pod 'Swiftilities'
+  pod 'KeychainAccess'
 
   target 'PRODUCTNAMETests' do
   	inherit! :search_paths

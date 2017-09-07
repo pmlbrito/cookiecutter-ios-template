@@ -10,7 +10,9 @@ import Foundation
 import SwiftyUserDefaults
 
 extension DefaultsKeys {
+    static let isValidKeychain = DefaultsKey<Bool?>("isValidKeychain")
     static let userWelcomeDone = DefaultsKey<Bool?>("userWelcomeDone")
+    static let loginUserName = DefaultsKey<String?>("loginUserName")
 }
 
 open class UserDefaultsManager {
@@ -18,12 +20,30 @@ open class UserDefaultsManager {
 //    var Defaults: UserDefaults! = UserDefaults(suiteName: Bundle.main.bundleIdentifier)! //-> only works when app group is set with identifier
     var Defaults: UserDefaults! = UserDefaults(suiteName: "suitecustomname")!
 
+    var isValidKeyChain: Bool {
+        get {
+            return Defaults[.isValidKeychain] ?? false
+        }
+        set {
+            Defaults[.isValidKeychain] = newValue
+        }
+    }
+
     var userWelcomeDone: Bool {
         get {
             return Defaults[.userWelcomeDone] ?? false
         }
         set {
             Defaults[.userWelcomeDone] = newValue
+        }
+    }
+
+    var loginUserName: String? {
+        get {
+            return Defaults[.loginUserName] ?? nil
+        }
+        set {
+            Defaults[.loginUserName] = newValue
         }
     }
 }

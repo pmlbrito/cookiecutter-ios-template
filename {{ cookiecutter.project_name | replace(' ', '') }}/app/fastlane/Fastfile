@@ -1,0 +1,132 @@
+fastlane_version "1.104.0"
+
+default_platform :ios
+
+# Set by build environment
+
+ENV['FASTLANE_XCODE_LIST_TIMEOUT'] = '120'
+ENV['CI_BUILD'] = 'yes'
+ENV['GYM_OUTPUT_NAME'] = '{{ cookiecutter.project_name | replace(' ', '') }}'
+SLACK_URL = ""
+CRASHLYTICS_API_KEY = '{{ cookiecutter.fabric_api_key }}'
+CRASHLYTICS_BUILD_SECRET = '{{ cookiecutter.fabric_build_secret_key }}'
+CRASHLYTICS_PATH = 'Pods/Crashlytics/iOS/Crashlytics.framework'
+
+
+####### Methods #######
+
+def setup_enviroment_variables
+  #ENV["SLACK_URL"] = SLACK_URL
+  ENV["GYM_USE_GENERIC_ARCHIVE_FIX"] = "1" # Turn on workaround for https://github.com/CocoaPods/CocoaPods/issues/4178
+  ENV["FASTLANE_EXPLICIT_OPEN_SIMULATOR"] = "1" # Turn on workaround for https://github.com/CocoaPods/CocoaPods/issues/4178
+end
+
+# type, must be: ["appstore", "adhoc", "enterprise"]
+def download_certificate_and_profile(type, env = "")
+  match(
+    app_identifier: "#{CredentialsManager::AppfileConfig.try_fetch_value(:app_identifier)}#{env}",
+    type: type,
+    force_for_new_devices: true
+  )
+end
+
+# export_method, must be: ["app-store", "ad-hoc", "package", "enterprise", "development", "developer-id"]
+def build_app(scheme, type, env)
+  increment_build_number()
+  gym(
+    scheme: scheme,
+    export_method: type
+  )
+end
+
+def build_app_for_beta_testing(scheme, env="")
+  # download_certificate_and_profile("adhoc", env)
+  build_app(scheme, "ad-hoc", env)
+end
+
+def push_to_crashlytics(list)
+  notes = changelog_from_git_commits(
+    pretty: '%s',
+    merge_commit_filtering: 'only_include_merges'
+  )
+  crashlytics(
+    crashlytics_path: CRASHLYTICS_PATH,
+    api_token: CRASHLYTICS_API_KEY,
+    build_secret: CRASHLYTICS_BUILD_SECRET,
+    notes: notes,
+    groups: list
+  )
+  clean_build_artifacts
+end
+
+
+
+####### Lanes #######
+
+platform :ios do
+
+  before_all do
+    setup_enviroment_variables
+    clear_derived_data
+    cocoapods(repo_update: true)
+  end
+
+  desc "Runs all the tests"
+  lane :test do
+    scan(
+      workspace: '{{ cookiecutter.project_name | replace(' ', '') }}.xcworkspace',
+      scheme: '{{ cookiecutter.project_name | replace(' ', '') }}',
+      devices: ["iPhone SE"],
+      clean: true,
+      code_coverage: true,
+      output_directory: 'build'
+    )
+    slather(
+      cobertura_xml: true,
+      proj: '{{ cookiecutter.project_name | replace(' ', '') }}.xcodeproj',
+      workspace: '{{ cookiecutter.project_name | replace(' ', '') }}.xcworkspace',
+      scheme: '{{ cookiecutter.project_name | replace(' ', '') }}',
+      source_directory: '../..',
+      output_directory: 'build'
+    )
+  end
+
+
+  desc "Build and upload a new beta build to Crashlytics"
+  lane :fabric do |options|
+    
+    env = options[:env]
+    case env
+    when 'prod'
+      build_app_for_beta_testing('{{ cookiecutter.project_name | replace(' ', '') }}')
+    else
+      build_app_for_beta_testing('{{ cookiecutter.project_name | replace(' ', '') }}_pre', '.pre')
+    end
+    
+    push_to_crashlytics('ios')
+  end
+
+  desc "Make sure the profiles are up to date and download the latest one when we add new devices"
+  lane :regenerate_for_new_devices do
+    #certificates and profiles for PROD
+    download_certificate_and_profile("adhoc")
+    download_certificate_and_profile("appstore")
+
+    #certificates and profiles for CI and PRE
+    download_certificate_and_profile("adhoc", ".pre")
+    download_certificate_and_profile("adhoc", ".ci")
+  end
+
+  # Helpers ----------------------
+
+  desc "Sync Project and Directory Structure"
+  lane :synx do
+    sh "cd .. && synx {{ cookiecutter.project_name | replace(' ', '') }}.xcodeproj"
+  end
+
+
+  def build_number
+    `git rev-list HEAD --count`.chomp()
+  end
+
+end

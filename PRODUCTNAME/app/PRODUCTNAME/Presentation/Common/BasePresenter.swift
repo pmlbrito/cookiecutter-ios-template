@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RxSwift
 
 class BasePresenter: BasePresenterProtocol {
     func bindUI(viewController: UIViewController) {
@@ -14,4 +15,10 @@ class BasePresenter: BasePresenterProtocol {
     }
 
     var viewController: BaseViewController?
+
+    var disposeBag: DisposeBag! = DisposeBag()
+
+    deinit {
+        self.disposeBag = nil
+    }
 }
