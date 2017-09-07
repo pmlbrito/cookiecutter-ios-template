@@ -2,8 +2,8 @@
 //  String+Extensions.swift
 //  {{ cookiecutter.project_name | replace(' ', '') }}
 //
-//  Created by Pedro Brito on 06/09/2017.
-//  Copyright © 2017 pmlb. All rights reserved.
+//  Created by {{ cookiecutter.lead_dev }} on 06/09/2017.
+//  Copyright © 2017 {{ cookiecutter.company_name }}. All rights reserved.
 //
 
 import Foundation
